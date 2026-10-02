@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizz Buzz</title>
+</head>
+<body>
+    <h1>Fizz Buzz!</h1>
+
+    <script>
+        // Get Input from user that must be an INT
+        // Print the numbers up to the number entered
+        // If it is a multiple of 3 print Fizz, if its a multiple of 5 print Buzz, if it is a multiple of both print FizzBuzz
+
+        // This function gets a number from the user and returns it
+        function getNumber(){
+            return parseInt(prompt("Enter a number between 1 and 100: "))
+        }
+        // This function runs the number through a loop starting at 1 until it reaches the passed in number. It checks if it is divisible by 3 and 5, if it is divisible by both it prints FizzBuzz, 3 > Fizz, 5 Buzz >, else the number
+        function fizzBuzzChecker(num) {
+            for (let i = 1; i < num; i++) {
+                if (i % 3 === 0 && i % 5 === 0){
+                    console.log("FizzBuzz")
+                }
+                else if (i % 3 === 0){
+                    console.log("Fizz")
+                }
+                else if (i % 5 === 0){
+                    console.log("Buzz")
+                }
+                else {
+                    console.log(i)
+                }
+            }
+        }
+
+        num = getNumber();
+        if (!num) {
+            alert("You did not enter a number. Reload the page and try again.");
+        }
+        else {
+            fizzBuzzChecker(num);
+        }
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
