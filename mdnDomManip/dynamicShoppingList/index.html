@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <form>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </form>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        // select the ul and assign it to a variable
+        const list = document.querySelector("ul");
+        // select the input and assign it to a variable
+        const input = document.querySelector("input");
+        // select the button and assign it to a variable
+        const btn = document.querySelector("button");
+
+        // create a function that will run when the button is pressed, it will add an element to the list with a delete button to remove it from the list
+        btn.addEventListener("click", ()=> {
+            // preventDefault on the event to stop the form from submitting and refreshing the page
+            event.preventDefault();
+            // store the current value in a variable named myItem
+            const myItem = input.value;
+            // clear the input by setting it to ""
+            input.value = "";
+            // Create an li, span and a button and store them in variables
+            const listItem = document.createElement("li");
+            const listText = document.createElement("span");
+            const listBtn = document.createElement("button");
+
+            // append the span and button as children of the list item
+            listItem.appendChild(listText);
+            listItem.appendChild(listBtn);
+            // set the text content of the span to the input value stored in myItem and set the text content of the listBtn to Delete
+            listText.textContent = myItem;
+            listBtn.textContent = "Delete";
+            // append listItem to the list
+            list.appendChild(listItem);
+            // add an event listener to the delete button that removes the list item when clicked.
+            listBtn.addEventListener("click", () => {
+                list.removeChild(listItem);
+            });
+            input.focus();
+        });
+        
+
+
+
+    </script>
+  </body>
+</html>
